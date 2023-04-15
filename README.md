@@ -17,6 +17,9 @@ Please feel free to contact me if you have any questions with this repo:)
     Stack 栈
     Queue 队列
     Linked List 链表
+    DBLinked List 双向列表
+    CirCicleLinkedList 单循环列表
+    
     Binary Search Tree 二分搜索树
     Heap 堆
     Index Heap 索引堆
