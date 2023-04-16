@@ -688,7 +688,7 @@ void BinaryTree<T>::CreateBTreeAccordPTRecu(BinaryTreeNode<T> *&tnode, char *&ps
 }
 
 int main() {
-	
+
     BinaryTree<int> mytree;
     //创建一棵二叉树
     BinaryTreeNode<int> *rootpoint = mytree.CreateNode(nullptr, E_Root, 'A'); //创建树根节点A
