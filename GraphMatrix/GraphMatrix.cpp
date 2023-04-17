@@ -174,10 +174,6 @@ private:
 };
 
 
-
-
-
-
 int main() {
 
 
@@ -205,7 +201,6 @@ int main() {
     //删除图中的顶点
     gm.DeleteVertex('C');
     gm.DispGraph();
-
 
 
     return 0;
