@@ -36,3 +36,19 @@ RandomNumber/cmake-build-debug/
 Graph-DFS/cmake-build-debug/
 
 Dijkstra/cmake-build-debug/
+
+Sort/cmake-build-debug/.cmake/api/v1/query/
+
+Sort/cmake-build-debug/.cmake/api/v1/reply/
+
+Sort/cmake-build-debug/
+
+Stack/StackBasedOnArray/cmake-build-debug/.cmake/api/v1/query/
+
+Stack/StackBasedOnArray/cmake-build-debug/
+
+Stack/StackBasedOnLinkedList/cmake-build-debug/Testing/Temporary/
+
+Stack/StackBasedOnLinkedList/cmake-build-debug/.cmake/api/v1/query/
+
+Stack/StackBasedOnLinkedList/cmake-build-debug/
