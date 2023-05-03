@@ -2,6 +2,7 @@
 // Created by lhc456 on 2023/5/3.
 //
 
+#include <cassert>
 #include "UF.h"
 
 class UnionFind1 : public UF {
