@@ -5,6 +5,8 @@
 #include "UnionFind1.cpp"
 #include "UnionFind2.cpp"
 #include "UnionFind3.cpp"
+#include "UnionFind4.cpp"
+#include "UnionFind5.cpp"
 
 template<typename T>
 double testUF(T *uf, int m) {
@@ -31,9 +33,16 @@ int main() {
     std::cout << "UnionFind2 : " << testUF(uf2, m) << " s " << std::endl;
     UnionFind3 *uf3 = new UnionFind3(size);
     std::cout << "UnionFind3 : " << testUF(uf3, m) << " s " << std::endl;
+    UnionFind4 *uf4 = new UnionFind4(size);
+    std::cout << "UnionFind4 : " << testUF(uf4, m) << " s " << std::endl;
+
+    UnionFind5 *uf5 = new UnionFind5(size);
+    std::cout << "UnionFind4 : " << testUF(uf5, m) << " s " << std::endl;
 
     delete[] uf1;
     delete[] uf2;
     delete[] uf3;
+    delete[] uf4;
+    delete[] uf5;
     return 0;
 }
