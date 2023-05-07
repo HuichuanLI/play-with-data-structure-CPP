@@ -20,10 +20,13 @@ private:
 
 
     void shiftUp(int k) {
+        Item e = data[k];
         while (k > 1 && data[k / 2] < data[k]) {
-            swap(data[k / 2], data[k]);
+//            swap(data[k / 2], data[k]);
+            data[k] = data[k / 2];
             k /= 2;
         }
+        data[k] = e;
     }
 
     void putNumberInLine(int num, string &line, int index_cur_level, int cur_tree_width, bool isLeft) {
@@ -56,15 +59,19 @@ private:
     }
 
     void shiftDown(int index) {
+        Item e = data[index];
+
         while (2 * index <= count) {
             int j = 2 * index;
             if (j + 1 <= count && data[j + 1] > data[j]) {
                 j += 1;
             }
-            if (data[index] >= data[j]) break;
-            swap(data[index], data[j]);
+            if (e >= data[j]) break;
+//            swap(data[index], data[j]);
+            data[index] = data[j];
             index = j;
         }
+        data[index] = e;
     }
 
 public:
