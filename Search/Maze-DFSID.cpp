@@ -2,6 +2,7 @@
 // Created by lhc456 on 2023/5/9.
 //
 #include<iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -79,7 +80,7 @@ void dfs_init() {
 
 int main() {
     ios::sync_with_stdio(false);
-    ifstream fin("data/dbfs/4.in");
+    ifstream fin("/Users/lhc456/Desktop/c++/play-with-data-structure-CPP/Search/data/dfs/4.in");
     cout.tie(NULL);
 
     fin >> n;
