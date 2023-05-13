@@ -145,7 +145,7 @@ int main() {
         treap->treapInsert(number[i]);
     }
     fin.close();
-
+    root = treap->root;
     treap->printBst(fout, root);
 
     for (int i = n - 1; i >= 0; i--) {
