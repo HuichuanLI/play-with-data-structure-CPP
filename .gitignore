@@ -70,3 +70,7 @@ UnionFind/cmake-build-debug/
 Heap/cmake-build-debug/
 
 Treap/cmake-build-debug/
+
+Splay/cmake-build-debug/Testing/Temporary/
+
+Splay/cmake-build-debug/
