@@ -25,7 +25,7 @@ class Splay {
 public:
     SplayNode *root;
 public:
-    SplayNode *rotate(SplayNode *a) {
+    SplayNode *rotate(SplayNode *root, SplayNode *a) {
         SplayNode *b = a->parent;
         if (!b)
             return root;
@@ -48,6 +48,7 @@ public:
         a->parent = b->parent;
         b->parent = a;
         if (root == b) {
+            this->root = a;
             root = a;
         }
         return root;
@@ -80,22 +81,22 @@ public:
         else
             previous->rightChild = node;
 
-        return splay(node);
+        return splay(root, node);
     }
 
-    SplayNode *splay(SplayNode *node) {
+    SplayNode *splay(SplayNode *root, SplayNode *node) {
         while (node != root) {
             if (node->parent == root)
-                root = rotate(node);
+                root = rotate(root, node);
             else if (node == node->parent->leftChild
                      && node->parent == node->parent->parent->leftChild
                      || node == node->parent->rightChild
                         && node->parent == node->parent->parent->rightChild) {
-                root = rotate(node->parent);
-                root = rotate(node);
+                root = rotate(root, node->parent);
+                root = rotate(root, node);
             } else {
-                root = rotate(node);
-                root = rotate(node);
+                root = rotate(root, node);
+                root = rotate(root, node);
             }
         }
         return root;
@@ -123,6 +124,47 @@ public:
         printSplay(fout, node->rightChild);
     }
 
+    SplayNode *splayDelete(SplayNode *root, SplayNode *node) {
+        root = splay(root, node);
+        if (root->leftChild)
+            root->leftChild->parent = NULL;
+        if (root->rightChild)
+            root->rightChild->parent = NULL;
+        root = splayMerge(root->leftChild, root->rightChild);
+        delete (node);
+        return root;
+    }
+
+    /**
+     * a is the root of left sub-tree
+     * b is the root of right sub-tree
+     * largest element in a < smallest element in b
+     */
+    SplayNode *splayMerge(SplayNode *a, SplayNode *b) {
+        if (!a)
+            return b;
+        if (!b)
+            return a;
+        SplayNode *newRoot;
+        if (rand() % 2 == 0) {
+            newRoot = a;
+            while (newRoot->rightChild)
+                newRoot = newRoot->rightChild;
+            newRoot = splay(a, newRoot);
+            newRoot->rightChild = b;
+            b->parent = newRoot;
+        } else {
+            newRoot = b;
+            while (newRoot->leftChild)
+                newRoot = newRoot->leftChild;
+            newRoot = splay(b, newRoot);
+            newRoot->leftChild = a;
+            a->parent = newRoot;
+        }
+        return newRoot;
+    }
+
+
 };
 
 int main() {
@@ -141,15 +183,17 @@ int main() {
     fin >> n;
     for (int i = 0; i < n; i++) {
         fin >> number[i];
-        splay->splayInsert(number[i]);
+        root = splay->splayInsert(number[i]);
     }
 
     splay->printSplay(fout, root);
-    root = splay->root;
+
     for (int i = n - 1; i >= 0; i--) {
         SplayNode *node = splay->splayFind(root, number[i]);
         if (!node)
             cout << "Cannot find number " << number[i] << endl;
+        else
+            root = splay->splayDelete(root, node);
     }
 
     cout << "Empty Tree?:" << (root == NULL ? "Yes" : "No") << endl;
