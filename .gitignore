@@ -76,3 +76,7 @@ Splay/cmake-build-debug/Testing/Temporary/
 Splay/cmake-build-debug/
 
 BinomialHeap/cmake-build-debug/
+
+PseudoBST/data/cmake-build-debug/
+
+PseudoBST/cmake-build-debug/
